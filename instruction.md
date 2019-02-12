@@ -39,7 +39,20 @@ javac Main.java
 ```
 java Main
 ```
-
+7. Пример работы с переменными, хранящими целые числа (программа считает сумму x и y):
+```
+public class Program {
+	public static void main(String[] args) {
+		//int - целочисленный тип данных
+		int x = 10;//целочисленная переменная с именем x и со значением 10
+		int y = 5;
+		//значение a вычислено как сумма значений x и y
+		int a = x + y;
+		System.out.println(a);
+	}
+}
+```
+8. Надо скачать Intellij Idea Community Edition
 
 
 
