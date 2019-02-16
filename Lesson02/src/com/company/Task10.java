@@ -10,9 +10,14 @@ public class Task10 {
         System.out.println("введите количество чисел:");
         int n = scanner.nextInt();
         int c = 0;
+        int max = 0;
         while (c < n) {
             int x = scanner.nextInt();
+            if (x > max) {
+                max = x;
+            }
             c++;
         }
+        System.out.println(max);
     }
 }
