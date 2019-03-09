@@ -6,8 +6,9 @@ public class PetV2 {
     public double weight;
 
     //конструктор класса
-    public PetV2(String name) {
+    public PetV2(String name, int age) {
         this.name = name;
+        this.age = age;
     }
 
     void eat(String food) {
