@@ -6,7 +6,7 @@ public class TestDatabase {
         Connection c = DriverManager.getConnection(url);
         Statement s = c.createStatement();
         ResultSet rs =
-                s.executeQuery("SELECT * FROM product WHERE id = 1;");
+                    s.executeQuery("SELECT * FROM product;");
         while (rs.next()) {
             int id = rs.getInt("id");
             String name = rs.getString("name");
