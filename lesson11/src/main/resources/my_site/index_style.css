@@ -1,0 +1,27 @@
+img {
+    width: 400px;
+}
+
+body {
+    color: rgb(28, 121, 255);
+    background: antiquewhite;
+    font-size: 25px;
+    font-family: 'Roboto Slab', serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.smallimage {
+    width: 100px;
+}
+
+.container {
+    background: aliceblue;
+    margin: 0 auto;
+    width: 700px;
+}
+
+
+
