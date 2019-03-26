@@ -1,11 +1,23 @@
 package ru.itis.sc2.lesson12;
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-@RestController
-@RequestMapping("/app")
+@Controller
 public class HelloController {
+    @RequestMapping("/app")
+    public String main() {
+        return "name";
+    }
+
+    @RequestMapping("/app/hello")
+    public String greeting(Model model,
+                           @RequestParam String username) {
+        model.addAttribute("username", username);
+        return "greeting";
+    }
 
     @RequestMapping("/")
     public String index() {
@@ -13,10 +25,4 @@ public class HelloController {
         return us.getAllUsers();
     }
 
-    @RequestMapping("/bye")
-    public String goodBye() {
-        return "<form>" +
-                "   <input type=\"text\"> " +
-                "</form>";
-    }
 }
