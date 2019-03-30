@@ -18,4 +18,23 @@ public class UserDao {
                 sqlQuery, params, urm);
         return u;
     }
+
+    public User save(User user) {
+        Object[] params = {user.username, user.password};
+        Integer id = jdbcTemplate.queryForObject(
+                "INSERT INTO \"user\" " +
+                "(username, password) " +
+                "VALUES (?, ?) RETURNING id", params,
+                Integer.class);
+        user.id = id;
+        return user;
+    }
 }
+
+
+
+
+
+
+
+

@@ -20,4 +20,27 @@ public class UserController {
         model.addAttribute("user", u);
         return "user_page";
     }
+
+    @GetMapping("/newuser")
+    public String createUser() {
+        return "new_user";
+    }
+
+    @GetMapping("/createuser")
+    public String saveUser(@RequestParam String username,
+                           @RequestParam String password) {
+        User u = new User();
+        u.username = username;
+        u.password = password;
+        User savedUser = userDao.save(u);
+        return ("redirect:/user?id=" + savedUser.id);
+    }
+
+
+
+
+
+
+
+
 }
