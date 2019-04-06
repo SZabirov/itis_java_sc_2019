@@ -1,11 +1,15 @@
 package com.companny.controllers;
 
+import com.companny.dao.OptionDao;
 import com.companny.dao.PollDao;
+import com.companny.models.Option;
 import com.companny.models.Poll;
+import org.omg.PortableInterceptor.INACTIVE;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -13,6 +17,22 @@ import java.util.List;
 public class PollController {
     @Autowired
     PollDao pollDao;
+
+    @Autowired
+    OptionDao optionDao;
+
+    String vote(Integer optionId) {
+        return "redirect:/";
+    }
+
+    @GetMapping("/options")
+    String getOptions(Model model,
+                      @RequestParam Integer pollId) {
+        List<Option> options =
+            optionDao.findOptionsByPollId(pollId);
+        model.addAttribute("optionList", options);
+        return "options_page";
+    }
 
     @GetMapping("/")
     String allPolls(Model model) {
