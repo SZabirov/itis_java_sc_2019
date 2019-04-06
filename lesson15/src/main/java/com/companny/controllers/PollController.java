@@ -21,7 +21,9 @@ public class PollController {
     @Autowired
     OptionDao optionDao;
 
+    @GetMapping("/vote")
     String vote(Integer optionId) {
+        optionDao.addVote(optionId);
         return "redirect:/";
     }
 

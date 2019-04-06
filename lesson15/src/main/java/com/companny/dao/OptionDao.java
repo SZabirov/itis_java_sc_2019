@@ -23,4 +23,11 @@ public class OptionDao {
                 sqlQuery, parameters, optionRowMapper);
         return options;
     }
+
+    public void addVote(Integer optionId) {
+        String sqlQuery = "UPDATE option SET votes = votes + 1 " +
+                "WHERE id = ?;";
+        Object[] params = {optionId};
+        jdbcTemplate.update(sqlQuery, params);
+    }
 }
